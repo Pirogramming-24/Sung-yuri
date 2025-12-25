@@ -1,0 +1,224 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body.dark-theme {
+    background-color: #000;
+    color: #fff;  
+}
+
+.header { width: 100%; padding: 20px 0; }
+.header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo img { height: 90px; }
+.nav ul { display: flex; list-style: none; gap: 30px; font-style: bold;}
+.nav li { color: #888; cursor: pointer; font-size: 15px; }
+
+.nav li.active { 
+    color: #4CAF50;
+    font-weight: bold; 
+}
+
+.container {
+    max-width: 1400px;
+    min-width: 350px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.gen-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0 50px;
+    width: 100%;
+    padding: 0 10px;
+}
+.current-gen { 
+    font-size: 24px; 
+    font-weight: bold; 
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.arrow { 
+    color: #888; 
+    font-size: 14px; 
+    cursor: pointer; 
+    z-index: 1;
+}
+
+.project-card {
+    background: #252525;
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+    background: #2d2d2d;
+}
+
+.thumb {
+    width: 220px; height: 140px;
+    background: #fff; border-radius: 10px;
+    overflow: hidden; flex-shrink: 0;
+}
+.thumb img { width: 100%; height: 100%; object-fit: contain; transition: 0.3s; }
+
+.project-card:hover .thumb img { transform: scale(1.08); }
+
+.info h3 { font-size: 24px; margin-bottom: 8px; }
+.desc { color: #aaa; font-size: 15px; margin-bottom: 20px; }
+
+.members { display: flex; list-style: none; gap: 10px; }
+.members li {
+    background: #3d3d3d; padding: 6px 14px;
+    border-radius: 6px; font-size: 13px; color: #bbb;
+}
+.members li.active { background: #1e90ff; color: #fff; }
+
+.menu-btn {
+    position: absolute; top: 30px; right: 30px;
+    background: none; border: none;
+    display: flex; flex-direction: column; gap: 4px;
+}
+.menu-btn span {
+    display: block; width: 20px; height: 2px;
+    background: #666; transition: 0.3s; transform-origin: right;
+}
+.project-card:hover .menu-btn span:nth-child(1) { transform: scaleX(0.7); }
+.project-card:hover .menu-btn span:nth-child(2) { transform: scaleX(0.5); }
+.project-card:hover .menu-btn span:nth-child(3) { transform: scaleX(0.8); }
+
+@media (max-width: 650px) {
+    .project-card { flex-direction: column; text-align: center; padding-top: 60px; }
+    .thumb { width: 100%; height: 220px; }
+    .members { justify-content: center; flex-wrap: wrap; }
+    .header-inner { flex-direction: column; gap: 20px; }
+}
+
+@media (max-width: 480px) {
+    .members {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px; width: 100%;
+    }
+    .members li { text-align: center; padding: 8px 0; }
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    margin-top: 80px;
+    width: 100%;
+}
+
+.footer-inner {
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.footer-rules {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s ease;
+}
+
+.footer-rules:hover {
+    transform: scale(1.03);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.icon-circle {
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.icon-circle:hover {
+    transform: scale(1.2);
+}
+
+.icon-circle img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.email-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.email-info:hover {
+    transform: scale(1.03);
+}
+
+.mail-icon {
+    background-color: white;
+    color: black;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 24px;
+    display: inline-block;
+}
+
+.email-text {
+    font-size: 15px;
+    color: white;
+}
+
+.footer-bottom {
+    background-color: #1a1a1a;
+    padding: 20px 0;
+    border-top: 1px solid #444;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #888;
+}
+
+@media (max-width: 650px) {
+    .footer-inner {
+        padding: 40px 20px;
+    }
+    .footer-rules {
+        font-size: 16px;
+    }
+}
